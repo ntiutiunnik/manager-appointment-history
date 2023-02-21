@@ -1,0 +1,154 @@
+Configuration:
+
+  Properties:
+    Property:
+      - name: logPath
+        value: "/var/log/doctor-appointment/manager/manager-appointment-history"
+      - name: defaultPattern
+        value: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${hostName} --- [%15.15t] %c{10} : %m%n%ex{15}"
+      - name: log_file_max_size
+        value: 100 MB
+
+  Appenders:
+    RollingRandomAccessFile:
+      - name: ApplicationLogAppender
+        immediateFlush: false
+        fileName: ${logPath}/application.log
+        filePattern: ${logPath}/archive/application-%d{yyyy-MM-dd}-%i.log
+        PatternLayout:
+          pattern: ${defaultPattern}
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: ${log_file_max_size}
+        DefaultRolloverStrategy:
+          fileIndex: nomax
+
+      - name: FrameworkLogAppender
+        immediateFlush: false
+        fileName: ${logPath}/framework.log
+        filePattern: ${logPath}/archive/framework-%d{yyyy-MM-dd}-%i.log
+        PatternLayout:
+          pattern: ${defaultPattern}
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: ${log_file_max_size}
+        DefaultRolloverStrategy:
+          fileIndex: nomax
+
+      - name: EventsAuditLogAppender
+        immediateFlush: false
+        fileName: ${logPath}/events-audit.log
+        filePattern: ${logPath}/archive/events-audit-%d{yyyy-MM-dd}-%i.log
+        PatternLayout:
+          pattern: ${defaultPattern}
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: ${log_file_max_size}
+        DefaultRolloverStrategy:
+          fileIndex: nomax
+
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+        - ref: ApplicationLogAppender
+
+    AsyncLogger:
+      # Application logging bindings
+      - name: com.demo.manager.appointmenthistory
+        additivity: false
+        level: debug
+        AppenderRef:
+          - ref: ApplicationLogAppender
+
+      - name: org.springframework.boot
+        additivity: false
+        level: error
+        AppenderRef:
+          - ref: ApplicationLogAppender
+
+      # Framework logging bindings
+      - name: com.zaxxer.hikari
+        additivity: false
+        level: debug
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: liquibase
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: org.hibernate
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: org.springframework
+        additivity: false
+        level: debug
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: org.springframework.beans
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: org.springframework.core.env
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: org.springframework.data
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: org.springframework.context
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: org.springframework.jdbc.core
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: org.springframework.jdbc.datasource
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: org.springframework.web.servlet.mvc
+        additivity: false
+        level: debug
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: org.springframework.web.servlet.HandlerMapping
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      - name: org.apache
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: FrameworkLogAppender
+
+      # Events audit logging bindings
+      - name: org.apache.kafka
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: EventsAuditLogAppender

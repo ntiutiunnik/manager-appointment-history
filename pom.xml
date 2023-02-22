@@ -12,8 +12,26 @@
 	<groupId>com.demo</groupId>
 	<artifactId>manager-appointment-history</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
 	<name>manager-appointment-history</name>
+	<description>Appointment History Manager</description>
+
+	<properties>
+		<java.version>17</java.version>
+		<spring-cloud.version>2022.0.1</spring-cloud.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -24,6 +42,12 @@
 					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<!-- Cloud dependencies -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
 		<!-- Web dependencies -->
@@ -80,12 +104,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<description>Appointment History Manager</description>
-
-	<properties>
-		<java.version>17</java.version>
-	</properties>
 
 	<build>
 		<plugins>

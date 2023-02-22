@@ -88,55 +88,13 @@ Configuration:
 
       - name: org.springframework
         additivity: false
-        level: debug
-        AppenderRef:
-          - ref: FrameworkLogAppender
-
-      - name: org.springframework.beans
-        additivity: false
         level: info
         AppenderRef:
           - ref: FrameworkLogAppender
 
-      - name: org.springframework.core.env
-        additivity: false
-        level: info
-        AppenderRef:
-          - ref: FrameworkLogAppender
-
-      - name: org.springframework.data
-        additivity: false
-        level: info
-        AppenderRef:
-          - ref: FrameworkLogAppender
-
-      - name: org.springframework.context
-        additivity: false
-        level: info
-        AppenderRef:
-          - ref: FrameworkLogAppender
-
-      - name: org.springframework.jdbc.core
-        additivity: false
-        level: info
-        AppenderRef:
-          - ref: FrameworkLogAppender
-
-      - name: org.springframework.jdbc.datasource
-        additivity: false
-        level: info
-        AppenderRef:
-          - ref: FrameworkLogAppender
-
-      - name: org.springframework.web.servlet.mvc
+      - name: org.springframework.web.servlet
         additivity: false
         level: debug
-        AppenderRef:
-          - ref: FrameworkLogAppender
-
-      - name: org.springframework.web.servlet.HandlerMapping
-        additivity: false
-        level: info
         AppenderRef:
           - ref: FrameworkLogAppender
 

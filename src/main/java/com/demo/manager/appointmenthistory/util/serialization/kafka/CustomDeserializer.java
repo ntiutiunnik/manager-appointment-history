@@ -5,7 +5,7 @@ import com.demo.manager.appointmenthistory.model.Appointment;
 import com.demo.manager.appointmenthistory.model.auxiliary.DoctorScheduleDto;
 import com.demo.manager.appointmenthistory.model.auxiliary.TimeSlotDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.micrometer.common.util.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Deserializer;
 import org.apache.logging.log4j.LogManager;

@@ -2,40 +2,39 @@ package com.demo.manager.appointmenthistory.response;
 
 import com.demo.manager.appointmenthistory.model.Appointment;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AppointmentHistoryResponse {
 
-    private LocalDate from;
+    private String from;
 
-    private LocalDate to;
+    private String to;
 
     private List<Appointment> appointments = new ArrayList<>();
 
     public AppointmentHistoryResponse() {
     }
 
-    public AppointmentHistoryResponse(LocalDate from, LocalDate to, List<Appointment> appointments) {
+    public AppointmentHistoryResponse(String from, String to, List<Appointment> appointments) {
         this.from = from;
         this.to = to;
         this.appointments = appointments;
     }
 
-    public LocalDate getFrom() {
+    public String getFrom() {
         return from;
     }
 
-    public void setFrom(LocalDate from) {
+    public void setFrom(String from) {
         this.from = from;
     }
 
-    public LocalDate getTo() {
+    public String getTo() {
         return to;
     }
 
-    public void setTo(LocalDate to) {
+    public void setTo(String to) {
         this.to = to;
     }
 

@@ -36,22 +36,24 @@ public class AppointmentController {
             @Parameter(
                     name = "from",
                     required = true,
-                    example = "2023-02-21"
+                    description = "Date as 'dd-MM-yyyy'",
+                    example = "21-02-2023"
             ),
             @Parameter(
                     name = "to",
                     required = true,
-                    example = "2023-02-21"
-            )}
-    )
+                    description = "Date as 'dd-MM-yyyy'",
+                    example = "22-02-2023"
+            )
+    })
     public ResponseEntity<AppointmentHistoryResponse> getAppointmentHistory(@RequestParam("from")
-                                                                            @DateTimeFormat(pattern = "yyyy-MM-dd")
+                                                                            @DateTimeFormat(pattern = "dd-MM-yyyy")
                                                                             LocalDate from,
                                                                             @RequestParam("to")
-                                                                            @DateTimeFormat(pattern = "yyyy-MM-dd")
+                                                                            @DateTimeFormat(pattern = "dd-MM-yyyy")
                                                                             LocalDate to) {
 
         List<Appointment> appointments = appointmentService.getAppointmentHistory(from, to);
-        return new ResponseEntity<>(new AppointmentHistoryResponse(from.toString(), to.toString(), appointments), HttpStatus.OK);
+        return new ResponseEntity<>(new AppointmentHistoryResponse(from, to, appointments), HttpStatus.OK);
     }
 }

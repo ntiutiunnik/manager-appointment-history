@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: manager-appointment-history
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: user
+      password: password
+      database: history
+      authentication-database: admin
+
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:29092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: com.demo.manager.appointmenthistory.util.serialization.kafka.CustomDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
+      group-id: history
+    topic:
+      name:
+        appointment_history
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+server:
+  port: 9000

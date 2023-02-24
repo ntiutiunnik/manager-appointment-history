@@ -2,8 +2,8 @@ package com.demo.manager.appointmenthistory.model;
 
 import com.demo.manager.appointmenthistory.model.auxiliary.AccountDto;
 import com.demo.manager.appointmenthistory.model.auxiliary.DoctorScheduleDto;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,6 +15,7 @@ public class Appointment {
     @Id
     private String id;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate date;
 
     private Long internalId;

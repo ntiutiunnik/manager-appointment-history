@@ -4,8 +4,11 @@ import com.demo.manager.appointmenthistory.exception.CustomCrudException;
 import com.demo.manager.appointmenthistory.exception.ErrorDetails;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.TypeMismatchException;
+import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
@@ -18,6 +21,15 @@ public class ControllerAdvice {
 
     @ExceptionHandler(CustomCrudException.class)
     public ResponseEntity<?> handleCustomCrudException(CustomCrudException exception, WebRequest webRequest) {
+        return handleException(exception, webRequest, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler({
+            ConversionFailedException.class,
+            HttpMessageConversionException.class,
+            TypeMismatchException.class
+    })
+    public ResponseEntity<?> handleDataConversionException(Exception exception, WebRequest webRequest) {
         return handleException(exception, webRequest, HttpStatus.BAD_REQUEST);
     }
 

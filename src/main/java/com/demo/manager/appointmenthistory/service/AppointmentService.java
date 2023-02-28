@@ -23,6 +23,10 @@ public class AppointmentService {
             throw new CustomCrudException("Invalid parameters specified for fetching appointment history.");
         }
 
+        if (from.isAfter(LocalDate.now())) {
+            throw new CustomCrudException("Data from future cannot be retrieved.");
+        }
+
         return appointmentRepository.findAllByDateBetween(from, to, Sort.by(Sort.Direction.ASC, "doctorSchedule.timeSlot.startTime"));
     }
 }

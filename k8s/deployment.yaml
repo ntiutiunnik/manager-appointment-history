@@ -10,7 +10,7 @@ spec:
       targetPort: 9000
   selector:
     app: manager-appointment-history
-  type: NodePort
+  type: ClusterIP
 
 ---
 apiVersion: apps/v1

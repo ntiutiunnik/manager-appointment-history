@@ -15,17 +15,17 @@ spring:
     deserialization:
       fail-on-unknown-properties: false
 
-  kafka:
-    consumer:
-      bootstrap-servers: localhost:29092
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: com.demo.manager.appointmenthistory.util.serialization.kafka.CustomDeserializer
-      properties:
-        spring.json.trusted.packages: '*'
-      group-id: history
-    topic:
-      name:
-        appointment_history
+#  kafka:
+#    consumer:
+#      bootstrap-servers: localhost:29092
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: com.demo.manager.appointmenthistory.util.serialization.kafka.CustomDeserializer
+#      properties:
+#        spring.json.trusted.packages: '*'
+#      group-id: history
+#    topic:
+#      name:
+#        appointment_history
 
 eureka:
   client:

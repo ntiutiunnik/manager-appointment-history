@@ -14,6 +14,21 @@ spec:
 
 ---
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-volume
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/db"
+
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mongo-pv-claim

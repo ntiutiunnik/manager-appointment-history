@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: manager-appointment-history-config
+  labels:
+    app: manager-appointment-history-config
+data:
+  KAFKA_SERVERS: broker-1-m3txlrmw95g7vvwt.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093,broker-5-m3txlrmw95g7vvwt.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093,broker-3-m3txlrmw95g7vvwt.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093,broker-2-m3txlrmw95g7vvwt.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093,broker-0-m3txlrmw95g7vvwt.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093,broker-4-m3txlrmw95g7vvwt.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093

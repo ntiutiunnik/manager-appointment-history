@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.Map;
@@ -13,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
 
 
-//@Component
+@Component
 public class AppointmentHistoryConsumer {
     private static final Logger logger = LogManager.getLogger(AppointmentHistoryConsumer.class);
 

@@ -1,4 +1,4 @@
-package com.demo.manager.appointmenthistory.config;
+package com.demo.manager.appointmenthistory.config.api;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

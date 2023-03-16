@@ -11,14 +11,28 @@
 
 	<groupId>com.demo</groupId>
 	<artifactId>manager-appointment-history</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>manager-appointment-history</name>
 	<description>Appointment History Manager</description>
 
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2021.0.3</spring-cloud.version>
+		<repository-name>doctor-appointment-platform-artifactory</repository-name>
+		<repository-owner>ntiutiunnik</repository-owner>
+		<branch-name>main</branch-name>
 	</properties>
+
+	<repositories>
+		<repository>
+			<id>doctor-appointment-platform-artifactory</id>
+			<url>https://github.com/${repository-owner}/${repository-name}/blob/${branch-name}/tools-doctor-appointment-auto-configure-1.0-SNAPSHOT.jar?raw=true</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<dependencyManagement>
 		<dependencies>
@@ -42,6 +56,13 @@
 					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<!-- Internal dependencies -->
+		<dependency>
+			<groupId>com.demo.tools</groupId>
+			<artifactId>tools-doctor-appointment-auto-configure</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 
 		<!-- Cloud dependencies -->

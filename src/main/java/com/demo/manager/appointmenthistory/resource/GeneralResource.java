@@ -1,4 +1,4 @@
-package com.demo.manager.appointmenthistory.util.resource;
+package com.demo.manager.appointmenthistory.resource;
 
 public final class GeneralResource {
 

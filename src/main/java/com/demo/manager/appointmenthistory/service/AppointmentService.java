@@ -1,8 +1,8 @@
 package com.demo.manager.appointmenthistory.service;
 
-import com.demo.manager.appointmenthistory.exception.CustomCrudException;
 import com.demo.manager.appointmenthistory.model.Appointment;
 import com.demo.manager.appointmenthistory.repository.AppointmentRepository;
+import com.demo.tools.doctorappointment.autoconfigure.exception.CustomCrudException;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 

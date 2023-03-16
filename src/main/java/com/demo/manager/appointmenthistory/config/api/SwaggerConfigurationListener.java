@@ -1,6 +1,6 @@
-package com.demo.manager.appointmenthistory.config;
+package com.demo.manager.appointmenthistory.config.api;
 
-import com.demo.manager.appointmenthistory.util.resource.GeneralResource;
+import com.demo.manager.appointmenthistory.resource.GeneralResource;
 import org.springframework.boot.context.event.ApplicationPreparedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.core.env.ConfigurableEnvironment;

@@ -3,9 +3,8 @@ package com.demo.manager.appointmenthistory.controller;
 import com.demo.manager.appointmenthistory.model.Appointment;
 import com.demo.manager.appointmenthistory.response.AppointmentHistoryResponse;
 import com.demo.manager.appointmenthistory.service.AppointmentService;
-import com.demo.manager.appointmenthistory.util.resource.GeneralResource;
+import com.demo.manager.appointmenthistory.resource.GeneralResource;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -32,20 +31,18 @@ public class AppointmentController {
     @GetMapping(
             produces = "application/json"
     )
-    @Parameters({
-            @Parameter(
-                    name = "from",
-                    required = true,
-                    description = "Date as 'dd-MM-yyyy'",
-                    example = "21-02-2023"
-            ),
-            @Parameter(
-                    name = "to",
-                    required = true,
-                    description = "Date as 'dd-MM-yyyy'",
-                    example = "22-02-2023"
-            )
-    })
+    @Parameter(
+            name = "from",
+            required = true,
+            description = "Date as 'dd-MM-yyyy'",
+            example = "21-02-2023"
+    )
+    @Parameter(
+            name = "to",
+            required = true,
+            description = "Date as 'dd-MM-yyyy'",
+            example = "22-02-2023"
+    )
     public ResponseEntity<AppointmentHistoryResponse> getAppointmentHistory(@RequestParam("from")
                                                                             @DateTimeFormat(pattern = "dd-MM-yyyy")
                                                                             LocalDate from,

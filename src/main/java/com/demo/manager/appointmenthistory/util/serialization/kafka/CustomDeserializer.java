@@ -1,9 +1,9 @@
 package com.demo.manager.appointmenthistory.util.serialization.kafka;
 
-import com.demo.manager.appointmenthistory.exception.CustomCrudException;
 import com.demo.manager.appointmenthistory.model.Appointment;
 import com.demo.manager.appointmenthistory.model.auxiliary.DoctorScheduleDto;
 import com.demo.manager.appointmenthistory.model.auxiliary.TimeSlotDto;
+import com.demo.tools.doctorappointment.autoconfigure.exception.CustomCrudException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
 import org.apache.kafka.common.errors.SerializationException;
